@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Assignment Hub | Premium Academic Services</title>
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -23,17 +22,13 @@
             }
         }
     </script>
-    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- EmailJS SDK -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script type="text/javascript">
         (function() {
-            // Aapki Public Key yahan successfully integrate ho gayi hai
             emailjs.init("o-pvlEq2SGW6AWvPs");
         })();
     </script>
@@ -83,11 +78,92 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* Anime Character CSS Styles */
+        @keyframes animeFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        .anime-container {
+            animation: animeFloat 4s ease-in-out infinite;
+        }
+        .anime-head {
+            background: #ffdbb5;
+            border-radius: 50% 50% 45% 45%;
+            position: relative;
+            box-shadow: inset -5px -2px 0px rgba(0,0,0,0.1);
+        }
+        .anime-hair-front {
+            background: #2e2a3a;
+            border-radius: 50% 50% 0 0;
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            width: 70px;
+            height: 35px;
+        }
+        .anime-hair-strand {
+            background: #2e2a3a;
+            position: absolute;
+            top: 20px;
+            width: 12px;
+            height: 25px;
+            border-radius: 0 0 50% 50%;
+        }
+        .anime-eye {
+            background: #a855f7;
+            border-radius: 50%;
+            position: absolute;
+            top: 32px;
+            width: 8px;
+            height: 12px;
+            animation: blink 4s infinite;
+        }
+        @keyframes blink {
+            0%, 90%, 100% { transform: scaleY(1); }
+            95% { transform: scaleY(0.1); }
+        }
+        .anime-blush {
+            background: rgba(255, 100, 100, 0.4);
+            border-radius: 50%;
+            position: absolute;
+            top: 42px;
+            width: 10px;
+            height: 5px;
+            filter: blur(1px);
+        }
+        .anime-body {
+            background: #3b82f6;
+            border-radius: 30% 30% 0 0;
+            position: relative;
+        }
+        .anime-collar {
+            background: #ffffff;
+            clip-path: polygon(0 0, 100% 0, 50% 100%);
+            position: absolute;
+            top: 0;
+            left: 17px;
+            width: 26px;
+            height: 12px;
+        }
+        .speech-bubble::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            right: 40px;
+            border-width: 10px 10px 0;
+            border-style: solid;
+            border-color: rgba(255, 255, 255, 0.9) transparent;
+            display: block;
+            width: 0;
+        }
+        .dark .speech-bubble::after {
+            border-color: rgba(15, 23, 42, 0.9) transparent;
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900 dark:bg-[#090d16] dark:text-white transition-colors duration-300 overflow-x-hidden">
 
-    <!-- Loading Screen -->
     <div id="loader" class="fixed inset-0 z-50 flex items-center justify-center bg-[#090d16]">
         <div class="relative w-24 h-24">
             <div class="absolute inset-0 rounded-full border-4 border-t-brand-purple border-r-transparent border-b-brand-blue border-l-transparent animate-spin"></div>
@@ -96,14 +172,12 @@
         </div>
     </div>
 
-    <!-- Background Particles -->
     <div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
         <div class="absolute top-[10%] left-[5%] w-72 h-72 bg-brand-blue/20 dark:bg-brand-blue/10 rounded-full blur-3xl animate-pulse-slow"></div>
         <div class="absolute top-[40%] right-[5%] w-96 h-96 bg-brand-purple/20 dark:bg-brand-purple/10 rounded-full blur-3xl animate-pulse-slow" style="animation-delay: 2s;"></div>
         <div class="absolute bottom-[10%] left-[20%] w-80 h-80 bg-pink-500/10 rounded-full blur-3xl animate-pulse-slow" style="animation-delay: 4s;"></div>
     </div>
 
-    <!-- Header Navigation -->
     <header class="sticky top-0 z-40 w-full glass transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <a href="#" class="flex items-center space-x-2 text-2xl font-black bg-gradient-to-r from-brand-blue to-brand-purple bg-clip-text text-transparent tracking-tight">
@@ -127,7 +201,6 @@
                 <a href="#request-form" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-brand-blue to-brand-purple text-white font-semibold text-sm hover:opacity-90 transform hover:-translate-y-0.5 transition-all shadow-lg shadow-brand-blue/20">Get Started</a>
             </div>
 
-            <!-- Mobile Menu Toggle -->
             <div class="flex items-center space-x-4 md:hidden">
                 <button id="theme-toggle-mobile" class="p-2 rounded-xl bg-slate-200/50 dark:bg-slate-800/50 text-amber-500 dark:text-indigo-400">
                     <i class="fa-solid fa-moon dark:hidden"></i>
@@ -139,7 +212,6 @@
             </div>
         </div>
         
-        <!-- Mobile Dropdown Menu -->
         <div id="mobile-menu" class="hidden md:hidden glass border-t border-slate-200/20 absolute w-full left-0 px-6 py-6 space-y-4 shadow-xl">
             <a href="#services" class="block font-medium py-2 border-b border-slate-100/10">Services</a>
             <a href="#why-choose-us" class="block font-medium py-2 border-b border-slate-100/10">Why Us</a>
@@ -150,7 +222,6 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section class="relative min-h-[calc(100vh-5rem)] flex items-center py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
             <div class="space-y-8 text-center lg:text-left">
@@ -165,9 +236,9 @@
                     We help students complete assignments, presentations, reports, templates, thumbnails, and many other academic or creative tasks with high quality and on-time delivery.
                 </p>
                 <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
-                    <a href="#request-form" class="px-8 py-4 rounded-xl bg-gradient-to-r from-brand-blue to-brand-purple text-white font-bold text-center tracking-wide shadow-xl shadow-brand-blue/20 hover:scale-105 active:scale-95 transition-all glow-blue">
-                        Order Now <i class="fa-solid fa-arrow-right ml-2 text-sm"></i>
-                    </a>
+                    <a href="#pricing" class="px-8 py-4 rounded-xl bg-gradient-to-r from-brand-blue to-brand-purple text-white font-bold text-center tracking-wide shadow-xl shadow-brand-blue/20 hover:scale-105 active:scale-95 transition-all glow-blue">
+    Order Now <i class="fa-solid fa-arrow-right ml-2 text-sm"></i>
+</a>
                     <a href="#contact" class="px-8 py-4 rounded-xl glass font-bold text-center border border-slate-300 dark:border-slate-700 hover:scale-105 active:scale-95 transition-all">
                         Contact Us
                     </a>
@@ -201,7 +272,6 @@
         </div>
     </section>
 
-    <!-- Services Section -->
     <section id="services" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto reveal">
         <div class="text-center max-w-3xl mx-auto mb-20 space-y-4">
             <h2 class="text-3xl sm:text-5xl font-black tracking-tight">Our Comprehensive <span class="bg-gradient-to-r from-brand-blue to-brand-purple bg-clip-text text-transparent">Academic Catalog</span></h2>
@@ -238,7 +308,6 @@
         </div>
     </section>
 
-    <!-- Why Choose Us -->
     <section id="why-choose-us" class="py-24 bg-slate-100/50 dark:bg-slate-900/40 border-y border-slate-200/10 reveal">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -280,14 +349,12 @@
         </div>
     </section>
 
-    <!-- Pricing Section -->
     <section id="pricing" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto reveal">
         <div class="text-center max-w-3xl mx-auto mb-20 space-y-4">
             <h2 class="text-3xl sm:text-5xl font-black tracking-tight">Transparent, <span class="bg-gradient-to-r from-brand-blue to-brand-purple bg-clip-text text-transparent">Fixed Rates</span></h2>
             <p class="text-slate-600 dark:text-slate-400 font-medium">No hidden variables. Select a structure matching your exact requirements.</p>
         </div>
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
-            <!-- Plan 1 -->
             <div class="glass p-8 rounded-3xl flex flex-col justify-between border border-slate-200/20 transform transition-transform hover:-translate-y-2 duration-300">
                 <div class="space-y-6">
                     <h3 class="text-xl font-bold tracking-tight text-slate-500 dark:text-slate-400">No Customization</h3>
@@ -299,9 +366,8 @@
                         <li class="flex items-center"><i class="fa-solid fa-circle-check text-brand-blue mr-3"></i> Ready-made Industry Format</li>
                     </ul>
                 </div>
-                <a href="#request-form" class="mt-8 block w-full py-3.5 text-center font-bold rounded-xl glass border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">Order Now</a>
+                <button onclick="setBudget(150)" class="mt-8 block w-full py-3.5 text-center font-bold rounded-xl glass border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">Order Now</button>
             </div>
-            <!-- Plan 2 (Highlighted) -->
             <div class="glass p-8 rounded-3xl flex flex-col justify-between border-2 border-brand-purple relative transform transition-transform lg:-translate-y-4 shadow-2xl shadow-brand-purple/10">
                 <span class="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-brand-blue to-brand-purple text-white text-xs font-bold uppercase tracking-wider">Most Popular</span>
                 <div class="space-y-6">
@@ -314,9 +380,8 @@
                         <li class="flex items-center"><i class="fa-solid fa-circle-check text-brand-purple mr-3"></i> Premium Dynamic Design</li>
                     </ul>
                 </div>
-                <a href="#request-form" class="mt-8 block w-full py-4 text-center font-bold rounded-xl bg-gradient-to-r from-brand-blue to-brand-purple text-white shadow-lg shadow-brand-purple/30 hover:opacity-95 transition-all glow-purple">Order Now</a>
+                <button onclick="setBudget(200)" class="mt-8 block w-full py-4 text-center font-bold rounded-xl bg-gradient-to-r from-brand-blue to-brand-purple text-white shadow-lg shadow-brand-purple/30 hover:opacity-95 transition-all glow-purple">Order Now</button>
             </div>
-            <!-- Plan 3 -->
             <div class="glass p-8 rounded-3xl flex flex-col justify-between border border-slate-200/20 transform transition-transform hover:-translate-y-2 duration-300">
                 <div class="space-y-6">
                     <h3 class="text-xl font-bold tracking-tight text-slate-500 dark:text-slate-400">Advanced Customization</h3>
@@ -329,12 +394,11 @@
                         <li class="flex items-center"><i class="fa-solid fa-circle-check text-brand-blue mr-3"></i> Absolute Best Academic Quality</li>
                     </ul>
                 </div>
-                <a href="#request-form" class="mt-8 block w-full py-3.5 text-center font-bold rounded-xl glass border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">Order Now</a>
+                <button onclick="setBudget(300)" class="mt-8 block w-full py-3.5 text-center font-bold rounded-xl glass border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">Order Now</button>
             </div>
         </div>
     </section>
 
-    <!-- How It Works -->
     <section id="how-it-works" class="py-24 bg-slate-100/50 dark:bg-slate-900/40 border-y border-slate-200/10 reveal">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-20 space-y-4">
@@ -363,7 +427,6 @@
         </div>
     </section>
 
-    <!-- Work Request Form System -->
     <section id="request-form" class="py-24 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto reveal">
         <div class="glass p-8 sm:p-12 rounded-3xl shadow-2xl border border-slate-200/20 space-y-8 relative">
             <div class="text-center space-y-2">
@@ -403,19 +466,17 @@
                 </div>
                 <div class="sm:col-span-2 space-y-2">
                     <label class="block text-xs font-bold tracking-wide uppercase text-slate-400">Budget Limit (INR)</label>
-                    <input type="number" name="budget" placeholder="e.g. 200" required class="w-full px-4 py-3 rounded-xl bg-slate-100/50 dark:bg-slate-800/50 border border-slate-300/30 focus:border-brand-blue outline-none transition-all">
+                  <input type="number" id="budget-input" name="budget" placeholder="e.g. 200" required class="w-full px-4 py-3 rounded-xl bg-slate-100/50 dark:bg-slate-800/50 border border-slate-300/30 focus:border-brand-blue outline-none transition-all">
                 </div>
                 <div class="sm:col-span-2 space-y-2">
                     <label class="block text-xs font-bold tracking-wide uppercase text-slate-400">Description of Work</label>
                     <textarea name="description" rows="4" required class="w-full px-4 py-3 rounded-xl bg-slate-100/50 dark:bg-slate-800/50 border border-slate-300/30 focus:border-brand-blue outline-none transition-all resize-none"></textarea>
                 </div>
                 <div class="sm:col-span-2 space-y-2">
-                    <label class="block text-xs font-bold tracking-wide uppercase text-slate-400">Upload Guidelines Sheet / Document Reference</label>
-                    <div class="w-full p-4 rounded-xl border-2 border-dashed border-slate-300 dark:border-slate-700 flex flex-col items-center justify-center space-y-2 bg-slate-50/50 dark:bg-slate-900/50 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer relative">
-                        <i class="fa-solid fa-cloud-arrow-up text-xl text-slate-400"></i>
-                        <span class="text-xs text-slate-400">Click to load local filesystem repository assets</span>
-                        <input type="file" name="file_attachment" class="absolute inset-0 opacity-0 cursor-pointer">
-                    </div>
+    <label class="block text-xs font-bold tracking-wide uppercase text-slate-400">Google Drive File Link</label>
+    <input type="url" name="drive_link" placeholder="https://drive.google.com/file/..." class="w-full px-4 py-3 rounded-xl bg-slate-100/50 dark:bg-slate-800/50 border border-slate-300/30 focus:border-brand-blue outline-none transition-all">
+    <p class="text-[10px] text-slate-400">Tip: File ko Google Drive par upload karein, 'Share' pe click karein, aur 'Anyone with the link' select karke link copy karein.</p>
+</div>
                 </div>
                 <button type="submit" class="sm:col-span-2 w-full py-4 rounded-xl bg-gradient-to-r from-brand-blue to-brand-purple text-white font-bold tracking-wider uppercase transition-all shadow-xl shadow-brand-blue/20 hover:opacity-95 active:scale-95">
                     Send Request
@@ -424,7 +485,6 @@
         </div>
     </section>
 
-    <!-- Testimonials Section -->
     <section class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto reveal">
         <div class="text-center max-w-3xl mx-auto mb-20">
             <h2 class="text-3xl font-black tracking-tight">Verified Student Feedback</h2>
@@ -466,7 +526,6 @@
         </div>
     </section>
 
-    <!-- FAQ Accordion -->
     <section id="faq" class="py-24 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto reveal">
         <div class="text-center mb-16"><h2 class="text-3xl font-black tracking-tight">Frequently Asked Queries</h2></div>
         <div class="space-y-4">
@@ -491,7 +550,26 @@
         </div>
     </section>
 
-    <!-- Contact Info -->
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end pointer-events-none select-none">
+        <div id="anime-bubble" class="speech-bubble mb-3 max-w-[220px] bg-white/90 dark:bg-slate-900/90 backdrop-blur-md px-4 py-3 rounded-2xl shadow-xl text-xs font-medium text-slate-700 dark:text-slate-200 border border-slate-200/20 pointer-events-auto transition-all duration-300 scale-0 opacity-0 transform origin-bottom-right">
+            Hello! Welcome to Assignment Hub. Let me help you with your tasks!
+        </div>
+        <div class="anime-container w-16 h-24 flex flex-col items-center cursor-pointer pointer-events-auto" onclick="triggerNextAnimeDetail()">
+            <div class="anime-head w-14 h-14">
+                <div class="anime-hair-front"></div>
+                <div class="anime-hair-strand" style="left: 4px;"></div>
+                <div class="anime-hair-strand" style="right: 4px;"></div>
+                <div class="anime-eye" style="left: 12px;"></div>
+                <div class="anime-eye" style="right: 12px;"></div>
+                <div class="anime-blush" style="left: 8px;"></div>
+                <div class="anime-blush" style="right: 8px;"></div>
+            </div>
+            <div class="anime-body w-14 h-10 mt-[-4px]">
+                <div class="anime-collar"></div>
+            </div>
+        </div>
+    </div>
+
     <section id="contact" class="py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto text-center reveal">
         <div class="glass p-8 rounded-3xl grid grid-cols-1 sm:grid-cols-2 gap-6 items-center">
             <a href="mailto:ayushbind04@gmail.com" class="flex items-center justify-center space-x-3 p-4 rounded-xl bg-slate-100/40 dark:bg-slate-800/40 hover:scale-105 transition-all">
@@ -505,7 +583,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="border-t border-slate-200/10 bg-slate-100/50 dark:bg-[#070a11] py-12 px-4 sm:px-6 lg:px-8 text-center text-sm font-medium text-slate-500">
         <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
             <div class="flex items-center space-x-2 text-xl font-black bg-gradient-to-r from-brand-blue to-brand-purple bg-clip-text text-transparent">
@@ -520,7 +597,6 @@
         </div>
     </footer>
 
-    <!-- Alert Popup Layer -->
     <div id="alert-popup" class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-500 max-w-sm w-full p-4 rounded-2xl glass shadow-2xl border flex items-center space-x-3">
         <div id="alert-icon-box" class="w-10 h-10 rounded-xl flex items-center justify-center text-white"></div>
         <div>
@@ -529,7 +605,6 @@
         </div>
     </div>
 
-    <!-- UI Logic Script -->
     <script>
         const loader = document.getElementById('loader');
         const themeToggleBtn = document.getElementById('theme-toggle');
@@ -621,32 +696,74 @@
             }, 5000);
         }
 
-        // Form Processing Pipeline
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const templateParams = {
-                from_name: form.user_name.value,
-                from_email: form.user_email.value,
-                phone: form.user_phone.value,
-                subject: form.subject.value,
-                work_type: form.work_type.value,
-                deadline: form.deadline.value,
-                budget: form.budget.value,
-                description: form.description.value,
-                to_email: 'ayushbind04@gmail.com'
-            };
+        // Anime Girl Logic Pipeline
+        const animeDetails = [
+            "Hi! Welcome to Assignment Hub. Need help with projects? ✨",
+            "We offer Assignment Writing, PPTs, Reports starting at ₹150! 🚀",
+            "Fill out the Project Ingestion Form below to submit details instantly! 📝",
+            "Got any custom work? Choose 'Custom Request' and send it over! 💎",
+            "Need fast delivery? We prioritize critical deadlines effortlessly. ⚡",
+            "Click on me anytime to switch tips!"
+        ];
+        let currentAnimeIndex = 0;
+        const animeBubble = document.getElementById('anime-bubble');
 
-            // Aapki Service ID aur Template ID yahan successfully set ho chuki hain
-            emailjs.send('service_eiixdzu', 'template_0rppen3', templateParams)
-                .then(function(response) {
-                    triggerAlert(true, "Your request has been sent successfully!", "Our team will reach out shortly.");
-                    form.reset();
-                }, function(error) {
-                    console.error('EmailJS Error:', error);
-                    triggerAlert(false, "Submission Failed", "Please connect directly to ayushbind04@gmail.com");
-                });
+        function triggerNextAnimeDetail() {
+            animeBubble.classList.add('scale-0', 'opacity-0');
+            setTimeout(() => {
+                animeBubble.innerText = animeDetails[currentAnimeIndex];
+                animeBubble.classList.remove('scale-0', 'opacity-0');
+                currentAnimeIndex = (currentAnimeIndex + 1) % animeDetails.length;
+            }, 250);
+        }
+
+        // Automatic Info cycling loop
+        setTimeout(() => {
+            triggerNextAnimeDetail();
+            setInterval(triggerNextAnimeDetail, 8000);
+        }, 1500);
+
+        // Function to convert file to Base64
+const convertBase64 = (file) => {
+    return new Promise((resolve, reject) => {
+        const fileReader = new FileReader();
+        fileReader.readAsDataURL(file);
+        fileReader.onload = () => resolve(fileReader.result);
+        fileReader.onerror = (error) => reject(error);
+    });
+};
+        // Form Processing Pipeline
+       form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const templateParams = {
+        from_name: form.user_name.value,
+        from_email: form.user_email.value,
+        phone: form.user_phone.value,
+        subject: form.subject.value,
+        work_type: form.work_type.value,
+        deadline: form.deadline.value,
+        budget: form.budget.value,
+        description: form.description.value,
+        drive_link: form.drive_link.value, // Yahan link add ho gaya
+        to_email: 'ayushbind04@gmail.com'
+    };
+
+    emailjs.send('service_eiixdzu', 'template_0rppen3', templateParams)
+        .then(function(response) {
+            triggerAlert(true, "Request Sent!", "Aapki request aur file link mil gaya hai.");
+            form.reset();
+        }, function(error) {
+            triggerAlert(false, "Submission Failed", "Error aayi hai, try again.");
         });
+});
+function setBudget(amount) {
+    const budgetInput = document.getElementById('budget-input');
+    if (budgetInput) {
+        budgetInput.value = amount;
+        document.getElementById('request-form').scrollIntoView({ behavior: 'smooth' });
+    }
+}
     </script>
 </body>
 </html>
